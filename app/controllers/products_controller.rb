@@ -1,12 +1,13 @@
 class ProductsController < ApplicationController
-    def index
-        @cart = cart
-    end
-
     def add
-        @item = Product.find(params[:id])
-
+        item = Product.find_or_create_by(name: params[:product])
         # Load the cart from the session, or create a new empty cart.
-        cart << @item.id
+        cart << item.name
+        redirect_to '/'
     end
+    def index
+    
+        @cart = cart   
+    end
+
 end
