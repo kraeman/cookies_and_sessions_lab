@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
         redirect_to '/'
     end
     def index
-    
+
         @cart = cart   
     end
 
